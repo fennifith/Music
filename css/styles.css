@@ -1,0 +1,40 @@
+* {
+	font-family: 'PT Serif', serif;
+	color: black;
+	animation-name: fadeIn;
+	animation-duration: .3s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+body {
+	margin: 0;
+}
+
+main {
+	display: block;
+}
+
+img {
+	max-width: 100%;
+}
+
+p {
+	color: rgba(0, 0, 0, 0.7);
+}
+
+a {
+	color: #00E676;
+	text-decoration: underline;
+	transition: color .25s;
+	-moz-transition: color .25s;
+	-webkit-transition: color .25s;
+}
+
+a:hover {
+	color: #00C853;
+}
