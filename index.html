@@ -40,7 +40,7 @@
 
 		@media screen and (min-width: 600px) {
 			header {
-				background: linear-gradient(to right, white, transparent), url(images/piano.svg) no-repeat;
+				background: linear-gradient(to right, #FAFAFA, transparent), url(images/piano.svg) no-repeat;
 	      background-size: calc(200px + 10%);
 	      background-position: center right;
 				padding: 30px 50px;
@@ -63,6 +63,12 @@
 		</p>
 	</header>
 	<main>
+		<div id="compositions" class="row"></div>
 	</main>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript">
+		var compositions = document.getElementById("compositions");
+		loadCompositions(compositions);
+	</script>
 </body>
 </html>

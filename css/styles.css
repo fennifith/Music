@@ -13,6 +13,7 @@
 
 body {
 	margin: 0;
+	background-color: #FAFAFA;
 }
 
 main {
@@ -25,6 +26,10 @@ img {
 
 p {
 	color: rgba(0, 0, 0, 0.7);
+}
+
+img {
+	max-width: 100%;
 }
 
 a {
@@ -62,4 +67,43 @@ a:hover:after {
 
 a:hover {
 	color: #225638;
+}
+
+.row {
+	padding: 20px 50px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+.row>* {
+	display: table-cell;
+	vertical-align: middle;
+	max-width: 500px;
+	padding: 0 12px;
+}
+
+.composition {
+	padding: 12px;
+	border-radius: 4px;
+	position: relative;
+	background-color: #FFF;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 8px;
+	white-space: normal;
+	width: 150px;
+	height: 250px;
+}
+
+.composition>.info {
+	display: block;
+	position: absolute;
+	padding: 0 12px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #FFF;
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
