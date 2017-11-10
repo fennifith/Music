@@ -34,12 +34,19 @@
   <link href="css/styles.css" rel="stylesheet">
 
 	<style>
-	  header {
-			background: linear-gradient(to right, white, transparent), url(images/piano.jpg) no-repeat;
-      background-size: 300px;
-      background-position: center right;
-			padding: 30px 50px;
-			padding-right: 300px;
+		header {
+			padding: 10px 20px;
+		}
+
+		@media screen and (min-width: 600px) {
+			header {
+				background: linear-gradient(to right, white, transparent), url(images/piano.svg) no-repeat;
+	      background-size: calc(200px + 10%);
+	      background-position: center right;
+				padding: 30px 50px;
+				padding-right: calc(200px + 10%);
+				min-height: 300px;
+			}
 		}
 	</style>
 </head>
