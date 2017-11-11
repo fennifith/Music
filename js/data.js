@@ -33,7 +33,7 @@ function loadPractice(element) {
 }
 
 function loadYouTubePractice(id, element) {
-	var dataRequest = createCORSRequest("GET", "https://noembed.com/embed?url=" + getYouTubeUrl(id) + "&format=json");
+	var dataRequest = createCORSRequest("GET", "https://noembed.com/embed?url=" + getYouTubeUrl(id));
     dataRequest.onreadystatechange = function () {
       if (dataRequest.readyState === 4) {
         if (dataRequest.status === 200 || dataRequest.status == 0) {

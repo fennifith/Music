@@ -71,39 +71,107 @@ a:hover {
 
 .row {
 	padding: 20px 50px;
-	overflow-x: auto;
-	overflow-y: hidden;
-	white-space: nowrap;
 }
 
 .row>* {
-	display: table-cell;
-	vertical-align: middle;
-	max-width: 500px;
+	display: block;
 	padding: 0 12px;
 }
 
 .composition {
-	padding: 12px;
+	padding: 1px 0;
+	margin: 16px 0;
 	border-radius: 4px;
-	position: relative;
 	background-color: #FFF;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	display: inline-block;
-	vertical-align: top;
-	margin: 0 8px;
-	white-space: normal;
-	width: 150px;
-	height: 250px;
+	cursor: pointer;
 }
 
 .composition>.info {
 	display: block;
-	position: absolute;
 	padding: 0 12px;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	background-color: #FFF;
 	border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.practice {
+	padding: 12px 0;
+	margin: 0;
+	position: relative;
+	display: block;
+	white-space: normal;
+	width: 100%;
+	height: auto;
+	clear: both;
+	cursor: pointer;
+}
+
+.practice>img {
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 600px) {
+	.composition {
+		display: inline-block;
+		margin: 16px;
+	}
+
+	.practice {
+		padding: 24px 0;
+	}
+
+	.practice>img {
+		float: left;
+		width: 30%;
+		margin-right: 20px;
+	}
+
+	.practice>.info {
+		display: inline-block;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.row {
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: nowrap;
+	}
+
+	.row>* {
+		display: table-cell;
+		vertical-align: middle;
+		max-width: 500px;
+	}
+
+	.composition {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 12px;
+		padding: 0;
+		white-space: normal;
+		width: 150px;
+		height: 250px;
+	}
+
+	.composition>.info {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.practice {
+		display: inline-block;
+		vertical-align: top;
+		padding: 12px;
+		width: 200px;
+	}
+
+	.practice>img {
+		width: auto;
+		margin: 0;
+	}
 }
