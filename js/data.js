@@ -6,7 +6,7 @@ function loadCompositions(element) {
           var obj = JSON.parse(dataRequest.responseText);
 					var html = "";
 					for (var i = 0; obj[i]; i++) {
-						html += "<div class=\"composition\" onclick=\"location.href = \'compositions/" + obj.id + "/score.pdf\';\"><img src=\"compositions/" + obj[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + obj[i].name + "</b><br>" + obj[i].date + "</p></div></div>";
+						html += "<div class=\"composition\" onclick=\"location.href = \'compositions/" + obj[i].id + "/score.pdf\';\"><img src=\"compositions/" + obj[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + obj[i].name + "</b><br>" + obj[i].date + "</p></div></div>";
 					}
 					element.innerHTML = html;
         }
