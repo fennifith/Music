@@ -6,7 +6,7 @@ function loadCompositions(element) {
           var obj = JSON.parse(dataRequest.responseText);
 					var html = "";
 					for (var i = 0; obj[i]; i++) {
-						html += "<div class=\"composition\"><img src=\"compositions/" + obj[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + obj[i].name + "</b><br>" + obj[i].date + "</p></div></div>";
+						html += "<div class=\"composition\" onclick=\"location.href = \'compositions/" + obj.id + "/score.pdf\';\"><img src=\"compositions/" + obj[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + obj[i].name + "</b><br>" + obj[i].date + "</p></div></div>";
 					}
 					element.innerHTML = html;
         }
@@ -38,7 +38,7 @@ function loadYouTubePractice(id, element) {
       if (dataRequest.readyState === 4) {
         if (dataRequest.status === 200 || dataRequest.status == 0) {
           var obj = JSON.parse(dataRequest.responseText);
-					element.innerHTML += "<div class=\"practice\" onclick=\"location.href = \'" + obj.src + "\';\"><img src=\"" + obj.thumbnail_url +"\"><div class=\"info\"><p>" + obj.title + "</p></div></div>";
+					element.innerHTML += "<div class=\"practice\" onclick=\"location.href = \'" + obj.url + "\';\"><img src=\"" + obj.thumbnail_url +"\"><div class=\"info\"><p>" + obj.title + "</p></div></div>";
         }
       }
     }

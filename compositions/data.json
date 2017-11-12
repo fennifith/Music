@@ -1,22 +1,27 @@
 [
 	{
-		"id": "composition",
-		"name": "Name",
-		"date": "Month Day, Year"
+		"id": "antiprocrastination",
+		"name": "Anti-Procrastination",
+		"date": "2017"
 	},
 	{
-		"id": "composition",
-		"name": "Name",
-		"date": "Month Day, Year"
+		"id": "haphazard",
+		"name": "Haphazard",
+		"date": "2017"
 	},
 	{
-		"id": "composition",
-		"name": "Name",
-		"date": "Month Day, Year"
+		"id": "genericrag",
+		"name": "Generic Rag",
+		"date": "2016"
 	},
 	{
-		"id": "composition",
-		"name": "Name",
-		"date": "Month Day, Year"
+		"id": "empirerhapsody",
+		"name": "Empire Rhapsody",
+		"date": "2015"
+	},
+	{
+		"id": "waltz",
+		"name": "Waltz in G Minor",
+		"date": "2014"
 	}
 ]
