@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="generator" content="Music" />
+  <title>Music</title>
+
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.json">
+
+  <meta name="application-name" content="Music">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="msapplication-tooltip" content="James Fenn">
+  <meta name="msapplication-config" content="/ieconfig.xml">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" sizes="16x16" href="/favicon.ico">
+  <link rel="icon" sizes="24x24" href="/images/favicon-24.ico">
+  <link rel="icon" sizes="32x32" href="/images/favicon-32.ico">
+  <link rel="icon" sizes="48x48" href="/images/favicon-48.ico">
+  <link rel="icon" sizes="64x64" href="/images/favicon-48.ico">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Music">
+  <link rel="apple-touch-icon-precomposed" href="/images/favicon-152.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+  <style>
+    #pdfObject {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #audio {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <object id="pdfObject" type="application/pdf">
+    <embed id="pdfEmbed" type="application/pdf">
+      <p>This browser does not support PDFs. Please download the PDF to view it: <a id="pdfLink">Download PDF</a>.</p>
+    </embed>
+  </object>
+  <audio id="audio" controls>
+    <source id="audioSource" type="audio/wav">
+  </audio>
+  <script>
+    var audioSource = document.getElementById("audioSource");
+    var pdfObject = document.getElementById("pdfObject");
+    var pdfEmbed = document.getElementById("pdfEmbed");
+
+    function getSearch() {
+      if (window.location.search)
+        return window.location.search.replace("?", "");
+      else return "home";
+    }
+
+    var search = getSearch();
+    var pdfParams = "#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scr‌​ollbar=0";
+    audioSource.src = "https://theandroidmaster.github.io/Music/compositions/" + search + "/audio.wav";
+    pdfObject.data = "https://theandroidmaster.github.io/Music/compositions/" + search + "/score.pdf" + pdfParams;
+    pdfEmbed.src = "https://theandroidmaster.github.io/Music/compositions/" + search + "/score.pdf" + pdfParams;
+  </script>
+</body>
+</html>
