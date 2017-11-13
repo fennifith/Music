@@ -45,7 +45,7 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			height: 100px;
+			height: 64px;
 			background-color: #212121;
 			padding: 0 24px;
 			overflow: hidden;
@@ -66,7 +66,6 @@
 			height: 64px;
 			white-space: nowrap;
 			position: relative;
-			bottom: 0;
 		}
 
 		#controls>i {
@@ -144,10 +143,6 @@
 		<div id="compositions" class="row"></div>
 		<div id="practice" class="row"></div>
 		<div id="playbar" style="display: none;">
-			<div id="links">
-				<a id="viewPdf">View Score</a>&nbsp;&nbsp;
-				<a id="downloadAudio">Download Audio</a>
-			</div>
 			<div id="controls">
 				<h1 id="name">Name</h1>
 				<i id="play" class="material-icons" style="display: none;" onclick="playAudio();">play_arrow</i>
@@ -164,8 +159,6 @@
 		var practice = document.getElementById("practice");
 		var playbar = document.getElementById("playbar");
 		var nameTitle = document.getElementById("name");
-		var viewPdf = document.getElementById("viewPdf");
-		var downloadAudio = document.getElementById("downloadAudio");
 		var play = document.getElementById("play");
 		var pause = document.getElementById("pause");
 		var progressBar = document.getElementById("progressBar");
@@ -183,8 +176,6 @@
 				};
 
 				nameTitle.onclick = pdf;
-				viewPdf.onclick = pdf;
-				downloadAudio.href = "download:compositions/" + data.id + "/audio.wav";
 			}
 
 			playbar.style.display = "block";
