@@ -102,7 +102,7 @@
 		<div id="compositions" class="row"></div>
 		<div id="practice" class="row"></div>
 		<div id="controls" style="display: none;">
-			<h1>Title</h1>
+			<h1 id="name">Name</h1>
 			<i id="play" class="material-icons" style="display: none;" onclick="playAudio();">play_arrow</i>
 			<i id="pause" class="material-icons" onclick="pauseAudio();">pause</i>
 		</div>
@@ -112,13 +112,17 @@
 		var compositions = document.getElementById("compositions");
 		var practice = document.getElementById("practice");
 		var controls = document.getElementById("controls");
+		var nameTitle = document.getElementById("name");
 		var play = document.getElementById("play");
 		var pause = document.getElementById("pause");
 
 		loadCompositions(compositions);
 		loadPractice(practice);
 
-		function onPlay(data) {
+		function onPlay(name) {
+			if (name)
+				nameTitle.innerHTML = name;
+			
 			controls.style.display = "block";
 			play.style.display = "none";
 			pause.style.display = "inline-block";

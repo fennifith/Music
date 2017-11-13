@@ -10,7 +10,7 @@ function loadCompositions(element) {
           compositions = JSON.parse(dataRequest.responseText);
 					var html = "";
 					for (var i = 0; compositions[i]; i++) {
-						html += "<div class=\"composition\" onclick=\"playAudio(\'compositions/" + compositions[i].id + "/audio.wav\');\"><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
+						html += "<div class=\"composition\" onclick=\"playAudio(\'compositions/" + compositions[i].id + "/audio.wav\', \'" + compositions[i].name + "\');\"><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
 					}
 					element.innerHTML = html;
         }
@@ -49,7 +49,7 @@ function loadYouTubePractice(id, element) {
     dataRequest.send(null);
 }
 
-function playAudio(source) {
+function playAudio(source, name) {
 	if (source) {
 		if (audio) {
 			audio.pause();
@@ -61,7 +61,7 @@ function playAudio(source) {
 		audio.play();
 	}
 
-	onPlay();
+	onPlay(name);
 }
 
 function pauseAudio() {
