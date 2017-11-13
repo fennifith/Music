@@ -119,10 +119,14 @@
 		loadCompositions(compositions);
 		loadPractice(practice);
 
-		function onPlay(name) {
-			if (name)
-				nameTitle.innerHTML = name;
-			
+		function onPlay(data) {
+			if (data) {
+				nameTitle.innerHTML = data.name;
+				nameTitle.onclick = function() {
+					location.href = "compositions/" + data.id + "/score.pdf";
+				}
+			}
+
 			controls.style.display = "block";
 			play.style.display = "none";
 			pause.style.display = "inline-block";
