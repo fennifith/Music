@@ -29,13 +29,39 @@
   <meta name="apple-mobile-web-app-title" content="Music">
   <link rel="apple-touch-icon-precomposed" href="/images/favicon-152.png">
 
-  <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 
 	<style>
 		header {
 			padding: 10px 20px;
+		}
+
+		#controls {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 64px;
+			background-color: #212121;
+			padding: 0 24px;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		#controls>* {
+			color: #FFF;
+			display: inline-block;
+			position: absolute;
+			bottom: 50%;
+			transform: translateY(50%);
+			margin: 0;
+		}
+
+		#controls>i {
+			right: 20px;
+			cursor: pointer;
 		}
 
 		@media screen and (min-width: 800px) {
@@ -48,6 +74,14 @@
 				padding-right: calc(200px + 30%);
 				min-height: 300px;
 				margin-bottom: 20px;
+			}
+
+			#controls {
+				margin: 20px;
+				width: 400px;
+				left: auto;
+				border-radius: 4px;
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 			}
 		}
 	</style>
@@ -67,14 +101,33 @@
 	<main>
 		<div id="compositions" class="row"></div>
 		<div id="practice" class="row"></div>
+		<div id="controls" style="display: none;">
+			<h1>Title</h1>
+			<i id="play" class="material-icons" style="display: none;" onclick="playAudio();">play_arrow</i>
+			<i id="pause" class="material-icons" onclick="pauseAudio();">pause</i>
+		</div>
 	</main>
 	<script type="text/javascript" src="js/data.js"></script>
 	<script type="text/javascript">
 		var compositions = document.getElementById("compositions");
 		var practice = document.getElementById("practice");
+		var controls = document.getElementById("controls");
+		var play = document.getElementById("play");
+		var pause = document.getElementById("pause");
 
 		loadCompositions(compositions);
 		loadPractice(practice);
+
+		function onPlay(data) {
+			controls.style.display = "block";
+			play.style.display = "none";
+			pause.style.display = "inline-block";
+		}
+
+		function onPause() {
+			play.style.display = "inline-block";
+			pause.style.display = "none";
+		}
 	</script>
 </body>
 </html>

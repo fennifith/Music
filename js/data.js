@@ -1,12 +1,16 @@
+var audio;
+var compositions;
+
+
 function loadCompositions(element) {
 	var dataRequest = new XMLHttpRequest();
     dataRequest.onreadystatechange = function () {
       if (dataRequest.readyState === 4) {
         if (dataRequest.status === 200 || dataRequest.status == 0) {
-          var obj = JSON.parse(dataRequest.responseText);
+          compositions = JSON.parse(dataRequest.responseText);
 					var html = "";
-					for (var i = 0; obj[i]; i++) {
-						html += "<div class=\"composition\" onclick=\"location.href = \'compositions/" + obj[i].id + "/score.pdf\';\"><img src=\"compositions/" + obj[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + obj[i].name + "</b><br>" + obj[i].date + "</p></div></div>";
+					for (var i = 0; compositions[i]; i++) {
+						html += "<div class=\"composition\" onclick=\"playAudio(\'compositions/" + compositions[i].id + "/audio.wav\');\"><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
 					}
 					element.innerHTML = html;
         }
@@ -43,6 +47,29 @@ function loadYouTubePractice(id, element) {
       }
     }
     dataRequest.send(null);
+}
+
+function playAudio(source) {
+	if (source) {
+		if (audio) {
+			audio.pause();
+		}
+
+		audio = new Audio(source);
+		audio.play();
+	} else if (audio) {
+		audio.play();
+	}
+
+	onPlay();
+}
+
+function pauseAudio() {
+	if (audio) {
+		audio.pause();
+	}
+
+	onPause();
 }
 
 function getYouTubeUrl(id) {
