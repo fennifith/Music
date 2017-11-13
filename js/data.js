@@ -90,3 +90,8 @@ function createCORSRequest(method, url) {
   }
   return xhr;
 }
+
+setInterval(function () {
+	if (audio)
+		onTimeUpdate(audio.currentTime, audio.duration);
+}, 10);
