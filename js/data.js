@@ -28,7 +28,7 @@ function loadPractice(element) {
           practice = JSON.parse(dataRequest.responseText);
 					var html = "";
 					for (var i = 0; practice[i]; i++) {
-						html += "<div class=\"practice\" onclick=\"startPracticeAudio(" + i + ");\"><img src=\"practice/" + practice[i].id +"/thumb.png\"><div class=\"info\"><p>" + practice[i].name + "</p></div></div>";
+						html += "<div class=\"practice\" onclick=\"startPracticeAudio(" + i + ");\"><img src=\"practice/" + practice[i].id +"/thumb.png\"><div class=\"info\"><b>" + practice[i].name + "</b></div></div>";
 					}
 					element.innerHTML = html;
         }

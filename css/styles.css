@@ -213,4 +213,9 @@ a:hover {
 		width: auto;
 		margin: 0;
 	}
+
+	.practice>.info {
+		padding: 0 4px;
+		padding-top: 4px;
+	}
 }
