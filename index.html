@@ -50,6 +50,15 @@
 			padding: 0 24px;
 			overflow: hidden;
 			white-space: nowrap;
+
+			animation-name: playbarIn;
+			animation-duration: .5s;
+			animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
+
+		#playbar.out {
+			animation-name: playbarOut;
+			animation-fill-mode: forwards;
 		}
 
 		#playbar * {
@@ -103,6 +112,22 @@
 		#links * {
 			position: relative;
 			transform: none;
+		}
+
+		@keyframes playbarIn {
+			from {
+				transform: translateY(200%);
+				opacity: 0;
+			}
+			to {transform: none;}
+		}
+
+		@keyframes playbarOut {
+			from {transform: none;}
+			to {
+				transform: translateY(200%);
+				opacity: 0;
+			}
 		}
 
 		@media screen and (min-width: 800px) {
@@ -179,6 +204,7 @@
 			}
 
 			playbar.style.display = "block";
+			playbar.className = "";
 			play.style.display = "none";
 			pause.style.display = "inline-block";
 
@@ -194,7 +220,7 @@
 			if (currentTime != duration) {
 				progressBar.style.width = (currentTime * 100 / duration) + "%";
 			} else if (isPlayBar) {
-				playbar.style.display = "none";
+				playbar.className = "out";
 				isPlayBar = false;
 			}
 		}
