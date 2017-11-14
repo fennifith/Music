@@ -10,7 +10,7 @@ function loadCompositions(element) {
           compositions = JSON.parse(dataRequest.responseText);
 					var html = "";
 					for (var i = 0; compositions[i]; i++) {
-						html += "<div class=\"composition\" onclick=\"startAudio(" + i + ");\"><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
+						html += "<div class=\"composition\" onclick=\"startAudio(" + i + ");\"><div class=\"pdf\" onclick=\"location.href = \'compositions/" + compositions[i].id + "/score.pdf\';\"><i class=\"material-icons\">picture_as_pdf</i></div><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
 					}
 					element.innerHTML = html;
         }
@@ -90,3 +90,8 @@ function createCORSRequest(method, url) {
   }
   return xhr;
 }
+
+setInterval(function () {
+	if (audio)
+		onTimeUpdate(audio.currentTime, audio.duration);
+}, 10);
