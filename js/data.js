@@ -1,6 +1,6 @@
 var audio;
 var compositions;
-
+var practice;
 
 function loadCompositions(element) {
 	var dataRequest = new XMLHttpRequest();
@@ -10,7 +10,7 @@ function loadCompositions(element) {
           compositions = JSON.parse(dataRequest.responseText);
 					var html = "";
 					for (var i = 0; compositions[i]; i++) {
-						html += "<div class=\"composition\" onclick=\"startAudio(" + i + ");\"><div class=\"pdf\" onclick=\"location.href = \'compositions/" + compositions[i].id + "/score.pdf\';\"><i class=\"material-icons\">picture_as_pdf</i></div><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
+						html += "<div class=\"composition\" onclick=\"startCompositionAudio(" + i + ");\"><div class=\"pdf\" onclick=\"location.href = \'compositions/" + compositions[i].id + "/score.pdf\';\"><i class=\"material-icons\">picture_as_pdf</i></div><img src=\"compositions/" + compositions[i].id + "/thumb.png\"><div class=\"info\"><p><b>" + compositions[i].name + "</b><br>" + compositions[i].date + "</p></div></div>";
 					}
 					element.innerHTML = html;
         }
@@ -25,10 +25,12 @@ function loadPractice(element) {
     dataRequest.onreadystatechange = function () {
       if (dataRequest.readyState === 4) {
         if (dataRequest.status === 200 || dataRequest.status == 0) {
-          var obj = JSON.parse(dataRequest.responseText);
-					for (var i = 0; obj[i]; i++) {
-							loadYouTubePractice(obj[i], element);
+          practice = JSON.parse(dataRequest.responseText);
+					var html = "";
+					for (var i = 0; practice[i]; i++) {
+						html += "<div class=\"practice\" onclick=\"startPracticeAudio(" + i + ");\"><img src=\"practice/" + practice[i].id +"/thumb.png\"><div class=\"info\"><p>" + practice[i].name + "</p></div></div>";
 					}
+					element.innerHTML = html;
         }
       }
     }
@@ -36,20 +38,7 @@ function loadPractice(element) {
     dataRequest.send(null);
 }
 
-function loadYouTubePractice(id, element) {
-	var dataRequest = createCORSRequest("GET", "https://noembed.com/embed?url=" + getYouTubeUrl(id));
-    dataRequest.onreadystatechange = function () {
-      if (dataRequest.readyState === 4) {
-        if (dataRequest.status === 200 || dataRequest.status == 0) {
-          var obj = JSON.parse(dataRequest.responseText);
-					element.innerHTML += "<div class=\"practice\" onclick=\"location.href = \'" + obj.url + "\';\"><img src=\"" + obj.thumbnail_url +"\"><div class=\"info\"><p>" + obj.title + "</p></div></div>";
-        }
-      }
-    }
-    dataRequest.send(null);
-}
-
-function startAudio(i) {
+function startCompositionAudio(i) {
 	if (audio) {
 		audio.pause();
 	}
@@ -57,6 +46,16 @@ function startAudio(i) {
 	audio = new Audio("compositions/" + compositions[i].id + "/audio.wav");
 	audio.play();
 	onPlay(compositions[i]);
+}
+
+function startPracticeAudio(i) {
+	if (audio) {
+		audio.pause();
+	}
+
+	audio = new Audio("practice/" + practice[i].id + "/audio.wav");
+	audio.play();
+	onPlay(practice[i]);
 }
 
 function playAudio(i) {
