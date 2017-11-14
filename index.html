@@ -86,9 +86,15 @@
 			position: relative;
 		}
 
+		#controls>h1 {
+			cursor: pointer;
+			user-select: none;
+		}
+
 		#controls>i {
 			right: 0;
 			cursor: pointer;
+			user-select: none;
 		}
 
 		#progress {
@@ -110,17 +116,6 @@
 			left: 0;
 			transform: none;
 			background-color: #FFF;
-		}
-
-		#links {
-			top: 0;
-			bottom: auto;
-			right: auto;
-		}
-
-		#links * {
-			position: relative;
-			transform: none;
 		}
 
 		@keyframes playbarIn {
