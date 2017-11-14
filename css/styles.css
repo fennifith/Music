@@ -129,6 +129,27 @@ a:hover {
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
+.pdf {
+	position: absolute;
+	padding: 4px 8px;
+	padding-top: 6px;
+	margin: 8px;
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	transition: background-color .25s;
+	-moz-transition: background-color .25s;
+	-webkit-transition: background-color .25s;
+}
+
+.pdf:hover {
+	background-color: #000;
+}
+
+.pdf i {
+	color: white;
+}
+
 @media screen and (min-width: 600px) {
 	.composition {
 		display: inline-block;
