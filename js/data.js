@@ -53,7 +53,7 @@ function startPracticeAudio(i) {
 		audio.pause();
 	}
 
-	audio = new Audio("practice/" + practice[i].id + "/audio.wav");
+	audio = new Audio("practice/" + practice[i].id + "/audio.mp3");
 	audio.play();
 	onPlay(practice[i]);
 }
