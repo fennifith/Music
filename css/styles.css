@@ -125,7 +125,7 @@ a:hover {
 	-webkit-transition: box-shadow .25s;
 }
 
-.practice>img:hover {
+.practice:hover>img {
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
