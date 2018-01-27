@@ -16,7 +16,7 @@ function loadCompositions(element) {
         }
       }
     }
-    dataRequest.open("GET", "https://theandroidmaster.github.io/Music/compositions/data.json", true);
+    dataRequest.open("GET", "https://jfenn.me/Music/compositions/data.json", true);
     dataRequest.send(null);
 }
 
@@ -34,7 +34,7 @@ function loadPractice(element) {
         }
       }
     }
-    dataRequest.open("GET", "https://theandroidmaster.github.io/Music/practice/data.json", true);
+    dataRequest.open("GET", "https://jfenn.me/Music/practice/data.json", true);
     dataRequest.send(null);
 }
 
