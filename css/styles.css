@@ -94,7 +94,7 @@ a:hover {
 	margin: 16px 0;
 	border-radius: 4px;
 	background-color: #FFF;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.37);
 	cursor: pointer;
 	opacity: 0;
 	transform: scale(0.5);
@@ -130,7 +130,7 @@ a:hover {
 }
 
 .composition:hover {
-	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0.4em 1.2em rgba(0, 0, 0, 0.3);
 }
 
 .composition>.info {
@@ -183,7 +183,6 @@ a:hover {
 
 .practice>img {
 	border-radius: 4px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 	transition: box-shadow .25s;
 	-moz-transition: box-shadow .25s;
@@ -191,7 +190,7 @@ a:hover {
 }
 
 .practice:hover>img {
-	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0.4em 1.2em rgba(0, 0, 0, 0.3);
 }
 
 .pdf {
